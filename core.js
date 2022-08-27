@@ -142,6 +142,6 @@ class FileView {
   }
   clearChromeStorage() {
     chrome.storage.sync.clear();
-    console.log("all file viewed status has been remoed");
+    console.log("all file viewed status has been removed");
   }
 }
