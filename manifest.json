@@ -1,0 +1,20 @@
+{
+  "name": "File View For Bitbucket (Temp Name)",
+  "version": "1.0.0",
+  "description": "A Github's file-view taste on Bitbucket with some more features (maybe)",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://bitbucket.org/*"],
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["https://bitbucket.org/*/*/pull-requests/*"],
+      "js": ["contentScript.js", "core.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon/cthulhu_eye.png",
+    "32": "icon/cthulhu_eye.png",
+    "48": "icon/cthulhu_eye.png",
+    "128": "icon/cthulhu_eye.png"
+  }
+}
