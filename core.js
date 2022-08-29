@@ -83,10 +83,13 @@ class FileView {
       }
 
       let viewed = this.record[fileName].viewed;
-      let template = `<div>Viewed <input type="checkbox" id="fileViewed-${sumifyFileName}" ${
+      let template = `<div style="display: flex;">Viewed <input type="checkbox" id="fileViewed-${sumifyFileName}" ${
         viewed ? "checked" : ""
       } /></div>`;
-      targetDom.innerHTML += template;
+
+      let uiNode = this.createDomNodeFromHtmlString(template);
+
+      targetDom.appendChild(uiNode);
 
       this.changeStyleByViewed(targetDom, viewed);
 
@@ -140,8 +143,15 @@ class FileView {
       );
     });
   }
+
   clearChromeStorage() {
     chrome.storage.sync.clear();
     console.log("all file viewed status has been removed");
+  }
+
+  createDomNodeFromHtmlString(htmlString) {
+    let tmp = document.createElement("div");
+    tmp.innerHTML = htmlString.trim();
+    return tmp.firstChild;
   }
 }
